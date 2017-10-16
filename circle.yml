@@ -5,7 +5,7 @@ notify:
 jobs:
   build:
     docker:
-      - image: ubuntu:16.04
+      - image: chinodesuuu/ci-amethyst:latest
     working_directory: src
     steps:
       - setup_remote_docker
