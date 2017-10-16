@@ -18,6 +18,9 @@ jobs:
       - run:
           name: Docker Build
           command: docker build -f Dockerfile -t chinodesuuu/ci-amethyst:latest .
- #     - run:
- #         name: Docker Push
- #         command: docker login -u $DOCKER_USER -p $DOCKER_PASS && docker push chinodesuuu/lovewing-builder:latest
+      - run:
+          name: Docker Push
+          command: docker login -u $DOCKER_USER -p $DOCKER_PASS && docker push chinodesuuu/lovewing-builder:latest          
+notify:
+  webhooks:
+- url: https://claraio-circledisc.herokuapp.com/hooks/circleci
