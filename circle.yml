@@ -1,8 +1,8 @@
 version: 2
+notify:
+ webhooks:
+   - url: https://claraio-circledisc.herokuapp.com/hooks/circleci
 jobs:
-  notify:
-    webhooks:
-      - url: https://claraio-circledisc.herokuapp.com/hooks/circleci
   build:
     docker:
       - image: ubuntu:16.04
