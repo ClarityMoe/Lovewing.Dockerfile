@@ -1,5 +1,8 @@
 version: 2
 jobs:
+  notify:
+    webhooks:
+      - url: https://claraio-circledisc.herokuapp.com/hooks/circleci
   build:
     docker:
       - image: ubuntu:16.04
@@ -17,10 +20,7 @@ jobs:
             mv /tmp/docker/* /usr/bin
       - run:
           name: Docker Build
-          command: docker build -f Dockerfile -t chinodesuuu/lovewing-builderlatest .
+          command: docker build -f Dockerfile -t chinodesuuu/lovewing-builder:latest .
       - run:
           name: Docker Push
           command: docker login -u $DOCKER_USER -p $DOCKER_PASS && docker push chinodesuuu/lovewing-builder:latest          
-notify:
-  webhooks:
-     - url: https://claraio-circledisc.herokuapp.com/hooks/circleci
